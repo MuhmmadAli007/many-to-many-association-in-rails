@@ -1,0 +1,15 @@
+<h1>Edit Book</h1>
+<%= form_with model: @book do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :authors %>
+    <%= form.collection_check_boxes :author_ids, Author.all, :id, :name, checked: @book.author_ids %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to 'Back', books_path %>

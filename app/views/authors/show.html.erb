@@ -1,0 +1,15 @@
+<h1><%= @author.name %></h1>
+<%= link_to 'Edit-Author', edit_author_path(@author) %> |
+      <%= link_to 'Delete-Author',author_path(@author), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+<h2>Books:</h2>
+<ul>
+  <% @author.books.each do |book| %>
+    <li><%= book.title %></li>
+  <% end %>
+</ul>
+
+ 
+<%= link_to 'Back', authors_path %>
